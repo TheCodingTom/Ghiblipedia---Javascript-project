@@ -1,13 +1,13 @@
 console.log(movies);
 
 function displayTitles(titlesArray) {
-  const titlesContainer = document.querySelector(".movies-titles");
+  const titlesContainer = document.querySelector(".movie-titles");
 
   for (let i = 0; i < titlesArray.length; i++) {
-    const moviesTitle = document.createElement("h4");
-    moviesTitle.innerText = titlesArray[i].title;
-    titlesContainer.appendChild(moviesTitle);
+    const movieTitle = document.createElement("h4");
+    movieTitle.innerText = titlesArray[i].title;
+    titlesContainer.appendChild(movieTitle);
   }
 }
 
-displayTitles(movies);
+// displayTitles(movies);
