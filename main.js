@@ -6,12 +6,14 @@ function displayCards(filmsArray) {
   for (let i = 0; i < filmsArray.length; i++) {
     const cardContainer = document.createElement("div");
     cardContainer.setAttribute("class", "card col-sm-6 col-md-4 col-lg-3");
+    cardContainer.classList.add("card");
 
     // cardContainer.setAttribute("style", "width: 18rem;");
 
     const cardImage = document.createElement("img"); // MAKE IMAGE SMALLER
     cardImage.setAttribute("src", filmsArray[i].image); // using the index to select all elements of the array and remember the structure of the data I'm using
     cardImage.setAttribute("alt", "image of a studio ghibli movie"); // double check if I find a better description
+    cardImage.classList.add("card-image");
 
     const cardBody = document.createElement("div");
     cardBody.setAttribute("class", "card-body");

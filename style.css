@@ -1,3 +1,22 @@
-/* .row {
-  color: blue;
-} */
+.card {
+  background-color: aquamarine;
+}
+
+.card-image {
+  border-radius: 5%;
+  margin: 20px;
+}
+
+#carouselExampleIndicators {
+  max-width: 90%;
+  margin: auto;
+}
+
+.carousel-inner > .carousel-item > img {
+  /* same height for carousel pics */
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+}
