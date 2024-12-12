@@ -5,8 +5,9 @@ function getFilms() {
     })
     .then((result) => {
       console.log(result);
-      // const films = result; - no need to assign a value, can also use directly result as an argument in the function
-      displayCards(result);
+      const films = result;
+      displayCards(films);
+      createDropdown(films);
     })
     .catch((error) => {
       console.log(error);
@@ -51,5 +52,31 @@ function displayCards(films) {
     cardBody.appendChild(cardLink);
   }
 }
+
+// 3. generate dropdown options
+
+const createDropdown = (films) => {
+  // get array of films by calling function in the fetch
+  const dropdown = document.getElementById("directorDropdown");
+
+  const directors = films.map((film) => {
+    return film.director;
+  });
+  console.log(directors); // created an array using .map with all the directors name
+
+  const setOfDirectors = new Set(directors); // created a set (different from array) to remove duplicates
+
+  const singleDirectorsArray = [...setOfDirectors]; // created an array with [] and used spread (...) to go over each element of the set and put them one by one inside the new array
+
+  console.log(singleDirectorsArray);
+
+  for (let i = 0; i < singleDirectorsArray.length; i++) {
+    // loop over the array to create options and assign them a value before appending it to the dropdown
+    const option = document.createElement("option");
+    option.innerText = singleDirectorsArray[i];
+    option.value = singleDirectorsArray[i]; // value could be different so I need to understand this better
+    dropdown.appendChild(option);
+  }
+};
 
 getFilms();
