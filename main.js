@@ -4,7 +4,7 @@ function getFilms() {
       return response.json();
     })
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       const films = result;
       controller(films);
       // displayCards(films);
@@ -17,6 +17,7 @@ function getFilms() {
 
 function displayCards(films) {
   const cardsContainer = document.querySelector(".row");
+  cardsContainer.innerText = "";
   for (let i = 0; i < films.length; i++) {
     const cardContainer = document.createElement("div");
     cardContainer.setAttribute("class", "card col-sm-6 col-md-4 col-lg-3");
@@ -63,7 +64,7 @@ const createDropdown = (films) => {
   const directors = films.map((film) => {
     return film.director;
   });
-  console.log(directors); // created an array using .map with all the directors name
+  // console.log(directors); // created an array using .map with all the directors name
 
   const setOfDirectors = new Set(directors); // created a set (different from array) to remove duplicates
 
@@ -90,21 +91,32 @@ function controller(films) {
   // generate dropdown filters options
   createDropdown(films);
   // set event listeners
-  setEventListeners();
+  setEventListeners(films);
   // create filter functions
 }
 
 // 5. event listeners
 
-const setEventListeners = () => {
+const setEventListeners = (films) => {
   const directorDropdown = document.querySelector("#directorDropdown");
-  directorDropdown.addEventListener("change", function () {
-    console.log("director selected");
+  directorDropdown.addEventListener("change", () => {
+    filterByDropdown(films);
   });
 };
 
 // 6. filter by dropdown
 
-const filterByDropdown = () => {};
+const filterByDropdown = (films) => {
+  const selectedDirector = document.getElementById("directorDropdown").value; // with .value we get the value of the option that has been selected
+
+  // console.log(selectedDirector);
+
+  // console.log("director selected");
+
+  const filteredDirector = films.filter((film) => {
+    return selectedDirector === film.director;
+  });
+  displayCards(filteredDirector); // how to display all directors?
+};
 
 getFilms();
