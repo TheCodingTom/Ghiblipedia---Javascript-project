@@ -6,8 +6,9 @@ function getFilms() {
     .then((result) => {
       console.log(result);
       const films = result;
-      displayCards(films);
-      createDropdown(films);
+      controller(films);
+      // displayCards(films);
+      // createDropdown(films); - called them inside controll function
     })
     .catch((error) => {
       console.log(error);
@@ -78,5 +79,32 @@ const createDropdown = (films) => {
     dropdown.appendChild(option);
   }
 };
+
+// 4. create controller function to handle the code in a better way
+
+function controller(films) {
+  // get the data
+
+  // build cards with data
+  displayCards(films);
+  // generate dropdown filters options
+  createDropdown(films);
+  // set event listeners
+  setEventListeners();
+  // create filter functions
+}
+
+// 5. event listeners
+
+const setEventListeners = () => {
+  const directorDropdown = document.querySelector("#directorDropdown");
+  directorDropdown.addEventListener("change", function () {
+    console.log("director selected");
+  });
+};
+
+// 6. filter by dropdown
+
+const filterByDropdown = () => {};
 
 getFilms();
