@@ -1,5 +1,5 @@
 #carouselExampleIndicators {
-  max-width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -16,4 +16,14 @@
     0.4 /*  the last value is the opacity : 1 is black, 0 is transparent. */
   );
   font-size: large;
+}
+
+.navbar-brand {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-large;
+}
+
+.nav-link {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
 }
