@@ -4,11 +4,16 @@
 }
 
 .carousel-inner > .carousel-item > img {
-  /* same height for carousel pics */
+  /* adds same height for carousel pics */
   height: 100vh;
 }
 
 .carousel-caption {
-  background-color: rgb(76, 76, 76);
-  opacity: 50%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.4 /*  the last value is the opacity : 1 is black, 0 is transparent. */
+  );
+  font-size: large;
 }
