@@ -1,0 +1,8 @@
+.card {
+  background-color: rgb(184, 234, 254);
+}
+
+.card-image {
+  border-radius: 5%;
+  margin: 20px;
+}

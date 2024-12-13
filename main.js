@@ -1,3 +1,5 @@
+// 1. get data
+
 function getFilms() {
   fetch("https://ghibliapi.vercel.app/films")
     .then((response) => {
@@ -14,6 +16,8 @@ function getFilms() {
       console.log(error);
     });
 }
+
+// 2. display data
 
 function displayCards(films) {
   const cardsContainer = document.querySelector(".row");
@@ -64,7 +68,7 @@ const createDropdown = (films) => {
   const directors = films.map((film) => {
     return film.director;
   });
-  // console.log(directors); // created an array using .map with all the directors name
+  // console.log(directors); // created a new array using .map with all the directors name
 
   const setOfDirectors = new Set(directors); // created a set (different from array) to remove duplicates
 
@@ -116,6 +120,7 @@ const filterByDropdown = (films) => {
   const filteredDirector = films.filter((film) => {
     return selectedDirector === film.director;
   });
+
   displayCards(filteredDirector); // how to display all directors?
 };
 

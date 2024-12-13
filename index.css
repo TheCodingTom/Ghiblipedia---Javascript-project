@@ -1,0 +1,14 @@
+#carouselExampleIndicators {
+  max-width: 90%;
+  margin: auto;
+}
+
+.carousel-inner > .carousel-item > img {
+  /* same height for carousel pics */
+  height: 100vh;
+}
+
+.carousel-caption {
+  background-color: rgb(76, 76, 76);
+  opacity: 50%;
+}
