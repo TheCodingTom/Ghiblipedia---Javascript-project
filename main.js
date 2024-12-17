@@ -92,14 +92,16 @@ function controller(films) {
 
   // build cards with data
   displayCards(films);
+  displayFilterOptions(films);
   // generate dropdown filters options
   createDropdown(films);
 
   // set event listeners
   setEventListeners(films);
+  boxEventListeners(films);
 
   // create filter functions
-  sortDropdown(films);
+
   console.log(films);
 }
 
@@ -130,28 +132,40 @@ const filterByDropdown = (films) => {
 
 // sort by box
 
+function displayFilterOptions() {
+  const dropdown = document.getElementById("sortByBox");
+  const option = document.createElement("option");
+  option.innerText = "A-Z";
+  // option.value = singleDirectorsArray[i];
+  dropdown.appendChild(option);
+}
+
 const sortDropdown = (films) => {
   const dropdown = document.getElementById("sortByBox");
+  const filmsToSort = [...films];
 
-  const movies = films.map((movie) => {
-    return movie.title;
+  const sortedMovies = filmsToSort.sort(function (a, b) {
+    const x = a.title.toLowerCase(); // create also Z-A
+    const y = b.title.toLowerCase();
+    if (x < y) {
+      return -1;
+    }
+    if (x > y) {
+      return 1;
+    }
+    return 0;
   });
-  sortedMovies = movies.sort();
-  console.log(sortedMovies);
-
-  // const option = document.createElement("option");
-  // option.innerText = "A-Z";
-  // // option.value = singleDirectorsArray[i];
-  // dropdown.appendChild(option);
+  // console.log(sortedMovies);
+  displayCards(sortedMovies);
 };
 
-// const boxEventListeners = (films) => {
-//   const dropdown = document.getElementById("sortByBox");
-//   dropdown.addEventListener("change", () => {
-//     console.log("you clicked here");
-//   });
-//   sortDropdown(films);
-// };
+const boxEventListeners = (films) => {
+  const dropdown = document.getElementById("sortByBox");
+  dropdown.addEventListener("change", () => {
+    console.log("you clicked here");
+    sortDropdown(films);
+  });
+};
 
 // modal
 

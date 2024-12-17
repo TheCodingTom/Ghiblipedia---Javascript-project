@@ -11,4 +11,5 @@ function getPeople() {
       console.log(error);
     });
 }
+
 getPeople();
