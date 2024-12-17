@@ -94,9 +94,13 @@ function controller(films) {
   displayCards(films);
   // generate dropdown filters options
   createDropdown(films);
+
   // set event listeners
   setEventListeners(films);
+
   // create filter functions
+  sortDropdown(films);
+  console.log(films);
 }
 
 // 5. event listeners
@@ -123,5 +127,32 @@ const filterByDropdown = (films) => {
 
   displayCards(filteredDirector); // how to display all directors?
 };
+
+// sort by box
+
+const sortDropdown = (films) => {
+  const dropdown = document.getElementById("sortByBox");
+
+  const movies = films.map((movie) => {
+    return movie.title;
+  });
+  sortedMovies = movies.sort();
+  console.log(sortedMovies);
+
+  // const option = document.createElement("option");
+  // option.innerText = "A-Z";
+  // // option.value = singleDirectorsArray[i];
+  // dropdown.appendChild(option);
+};
+
+// const boxEventListeners = (films) => {
+//   const dropdown = document.getElementById("sortByBox");
+//   dropdown.addEventListener("change", () => {
+//     console.log("you clicked here");
+//   });
+//   sortDropdown(films);
+// };
+
+// modal
 
 getFilms();
