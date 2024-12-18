@@ -97,17 +97,17 @@ function controller(films) {
   createDropdown(films);
 
   // set event listeners
-  setEventListeners(films);
-  boxEventListeners(films);
+  dropdownEventListener(films);
+  boxEventListener(films);
 
   // create filter functions
 
-  console.log(films);
+  // console.log(films);
 }
 
 // 5. event listeners
 
-const setEventListeners = (films) => {
+const dropdownEventListener = (films) => {
   const directorDropdown = document.querySelector("#directorDropdown");
   directorDropdown.addEventListener("change", () => {
     filterByDropdown(films);
@@ -117,14 +117,14 @@ const setEventListeners = (films) => {
 // 6. filter by dropdown
 
 const filterByDropdown = (films) => {
-  const selectedDirector = document.getElementById("directorDropdown").value; // with .value we get the value of the option that has been selected
+  const selectedDirector = document.querySelector("#directorDropdown").value; // with .value we get the value of the option that has been selected
 
   // console.log(selectedDirector);
 
   // console.log("director selected");
 
   const filteredDirector = films.filter((film) => {
-    return selectedDirector === film.director;
+    return selectedDirector === film.director || selectedDirector === "all";
   });
 
   displayCards(filteredDirector); // how to display all directors?
@@ -159,7 +159,7 @@ const sortDropdown = (films) => {
   displayCards(sortedMovies);
 };
 
-const boxEventListeners = (films) => {
+const boxEventListener = (films) => {
   const dropdown = document.getElementById("sortByBox");
   dropdown.addEventListener("change", () => {
     console.log("you clicked here");
