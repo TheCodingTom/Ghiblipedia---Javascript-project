@@ -17,17 +17,3 @@
   );
   font-size: large;
 }
-
-.navbar-brand {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: x-large;
-}
-
-.nav-link {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: medium;
-}
-
-#more {
-  display: none;
-}
