@@ -92,13 +92,14 @@ function controller(films) {
 
   // build cards with data
   displayCards(films);
-  displayFilterOptions(films);
+
   // generate dropdown filters options
   createDropdown(films);
 
   // set event listeners
   dropdownEventListener(films);
-  boxEventListener(films);
+  // boxEventListener(films);
+  sortEventListeners(films);
 
   // create filter functions
 
@@ -127,44 +128,53 @@ const filterByDropdown = (films) => {
     return selectedDirector === film.director || selectedDirector === "all";
   });
 
-  displayCards(filteredDirector); // how to display all directors?
+  displayCards(filteredDirector);
 };
 
-// sort by box
+// sort by box //? not needed cause the options are hardcoded
 
-function displayFilterOptions() {
-  const dropdown = document.getElementById("sortByBox");
-  const option = document.createElement("option");
-  option.innerText = "A-Z";
-  // option.value = singleDirectorsArray[i];
-  dropdown.appendChild(option);
-}
+// function displayFilterOptions() {
+//   const dropdown = document.getElementById("sortByBox");
+//   const option = document.createElement("option");
+//   option.innerText = "A-Z";
+//   // option.value = singleDirectorsArray[i];
+//   dropdown.appendChild(option);
+// }
 
-const sortDropdown = (films) => {
-  const dropdown = document.getElementById("sortByBox");
-  const filmsToSort = [...films];
+const sortEventListeners = (films) => {
+  const filmSort = document.getElementById("sortByBox");
 
-  const sortedMovies = filmsToSort.sort(function (a, b) {
-    const x = a.title.toLowerCase(); // create also Z-A
-    const y = b.title.toLowerCase();
-    if (x < y) {
-      return -1;
-    }
-    if (x > y) {
-      return 1;
-    }
-    return 0;
+  filmSort.addEventListener("change", (e) => {
+    // console.log(e.target.value);
+    sortByDropDown(films);
   });
-  // console.log(sortedMovies);
-  displayCards(sortedMovies);
 };
 
-const boxEventListener = (films) => {
-  const dropdown = document.getElementById("sortByBox");
-  dropdown.addEventListener("change", () => {
-    console.log("you clicked here");
-    sortDropdown(films);
-  });
+const sortByDropDown = (films) => {
+  const sortedFilms = [...films];
+  // console.log(sortedFilms);
+
+  const filmSort = document.getElementById("sortByBox");
+  let filmSortValue = filmSort.value;
+  // console.log(filmSortValue);
+
+  if (filmSortValue === "default") {
+    displayCards(films);
+  } else if (filmSortValue === "A-Z") {
+    sortedFilms.sort((a, b) => a.title.localeCompare(b.title));
+    displayCards(sortedFilms);
+  } else if (filmSortValue === "Z-A") {
+    sortedFilms.sort((a, b) => b.title.localeCompare(a.title));
+    displayCards(sortedFilms);
+  } else if (filmSortValue === "Release Year") {
+    sortedFilms.sort((a, b) => b.release_date - a.release_date);
+    displayCards(sortedFilms);
+  } else if (filmSortValue === "Rating") {
+    sortedFilms.sort((a, b) => b.rt_score - a.rt_score);
+    displayCards(sortedFilms);
+  } else if (filmSortValue === "Running Time")
+    sortedFilms.sort((a, b) => b.running_time - a.running_time);
+  displayCards(sortedFilms);
 };
 
 // modal
