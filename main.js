@@ -45,6 +45,7 @@ function displayCards(films) {
 
     const cardText = document.createElement("p");
     cardText.setAttribute("class", "card-text");
+    cardText.setAttribute("class", "single-line");
     cardText.innerText = films[i].description;
 
     const cardLink = document.createElement("a");
