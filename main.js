@@ -49,8 +49,12 @@ function displayCards(films) {
     cardText.innerText = films[i].description;
 
     const cardLink = document.createElement("a");
-    cardLink.setAttribute("href", "");
+    // cardLink.setAttribute("href", "");
     cardLink.setAttribute("class", "btn btn-primary");
+    cardLink.addEventListener("click", () => {
+      openMovieDetails(films[i].id); // added
+    });
+
     cardLink.innerText = "Discover more";
 
     cardsContainer.appendChild(cardContainer);
@@ -166,3 +170,7 @@ const sortByDropDown = (films) => {
 // modal
 
 getFilms();
+
+function openMovieDetails(movieId) {
+  window.location.href = `movie.html?id=${movieId}`; // added
+}
