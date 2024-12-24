@@ -29,4 +29,5 @@ function displayMovieDetails(movie) {
   document.getElementById("movie-release-date").textContent =
     movie.release_date;
   document.getElementById("movie-rating").textContent = movie.rt_score;
+  document.getElementById("movie-banner").textContent = movie.image;
 }
