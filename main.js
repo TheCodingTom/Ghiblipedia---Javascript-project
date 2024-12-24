@@ -52,7 +52,7 @@ function displayCards(films) {
     // cardLink.setAttribute("href", "");
     cardLink.setAttribute("class", "btn btn-primary");
     cardLink.addEventListener("click", () => {
-      openMovieDetails(films[i].id); // added
+      openMovieDetails(films[i].id); // added event listener based on movie id to redirect user to a new page about the selected movie
     });
 
     cardLink.innerText = "Discover more";
@@ -172,5 +172,7 @@ const sortByDropDown = (films) => {
 getFilms();
 
 function openMovieDetails(movieId) {
-  window.location.href = `movie.html?id=${movieId}`; // added
+  window.location.href = `movie-page.html?id=${movieId}`; // used to get the current URL and to redirect the browser to a new page
 }
+
+//? only thing I'm not sure about window.location.href is "shouldn't the written url be the same as the current page?"
