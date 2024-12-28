@@ -30,4 +30,6 @@ function displayMovieDetails(movie) {
     movie.release_date;
   document.getElementById("movie-rating").textContent = movie.rt_score;
   document.getElementById("movie-banner").src = movie.movie_banner;
+  document.getElementById("original-title").textContent = movie.original_title;
+  document.getElementById("movie-time").textContent = movie.running_time;
 }
