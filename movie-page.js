@@ -12,9 +12,9 @@ function getMovieDetails(movieId) {
       return response.json();
     })
     .then((result) => {
-      const film = result;
-      console.log(film);
-      displayMovieDetails(film);
+      const movie = result;
+      console.log(movie);
+      displayMovieDetails(movie);
     })
     .catch((error) => {
       console.log(error);
@@ -29,5 +29,5 @@ function displayMovieDetails(movie) {
   document.getElementById("movie-release-date").textContent =
     movie.release_date;
   document.getElementById("movie-rating").textContent = movie.rt_score;
-  document.getElementById("movie-banner").textContent = movie.image;
+  document.getElementById("movie-banner").src = movie.movie_banner;
 }
