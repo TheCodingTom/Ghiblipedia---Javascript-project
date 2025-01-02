@@ -1,24 +1,28 @@
 .card {
   background-color: rgb(184, 234, 254);
+  border: none !important;
 }
 
 .card-image {
   border-radius: 5%;
-  margin: 20px;
 }
 
 .card-image:hover {
   transform: scale(1.05);
 }
 
-.single-line {
+.row {
+  row-gap: 10px;
+}
+
+/* .single-line {
   overflow: hidden;
   line-height: 2rem;
   max-height: 8rem;
   display: block;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
+} */
 
 .filters-container {
   display: flex;

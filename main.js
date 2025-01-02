@@ -26,8 +26,13 @@ function displayCards(films) {
   for (let i = 0; i < films.length; i++) {
     const cardContainer = document.createElement("div");
     cardContainer.setAttribute("id", films[i].id); // to create single pages
-    cardContainer.setAttribute("class", "card col-sm-6 col-md-4 col-lg-3");
-    cardContainer.classList.add("card");
+    // cardContainer.setAttribute("class", "card col-sm-6 col-md-4 col-lg-3");
+
+    cardContainer.setAttribute(
+      "class",
+      "card col-4 card col-sm-4 col-md-3 col-lg-2"
+    );
+    // cardContainer.classList.add("style=margin:100px");
 
     // cardContainer.setAttribute("style", "width: 18rem;");
 
@@ -36,10 +41,14 @@ function displayCards(films) {
     cardImage.setAttribute("alt", "image of a studio ghibli movie"); // double check if I find a better description
     cardImage.classList.add("card-image");
 
+    cardImage.addEventListener("click", () => {
+      openMovieDetails(films[i].id); // added event listener based on movie id to redirect user to a new page about the selected movie
+    });
+
     const cardBody = document.createElement("div");
     cardBody.setAttribute("class", "card-body");
 
-    const cardTitle = document.createElement("h5");
+    const cardTitle = document.createElement("h6");
     cardTitle.setAttribute("class", "card-title"); // alternative: cardTitle.classList.add("card-title")
     cardTitle.innerText = films[i].title;
 
@@ -59,10 +68,11 @@ function displayCards(films) {
 
     cardsContainer.appendChild(cardContainer);
     cardContainer.appendChild(cardImage);
+
     cardContainer.appendChild(cardBody); // same level as the image - not a child of cardImage
     cardBody.appendChild(cardTitle);
-    cardBody.appendChild(cardText);
-    cardBody.appendChild(cardLink);
+    // cardBody.appendChild(cardText);
+    // cardBody.appendChild(cardLink);
   }
 }
 
