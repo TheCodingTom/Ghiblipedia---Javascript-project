@@ -29,10 +29,7 @@ function displayCards(films) {
     cardContainer.setAttribute("id", films[i].id); // to create single pages
     // cardContainer.setAttribute("class", "card col-sm-6 col-md-4 col-lg-3");
 
-    cardContainer.setAttribute(
-      "class",
-      "card col-4 card col-sm-4 col-md-3 col-lg-2"
-    );
+    cardContainer.setAttribute("class", "card col-sm-6 col-md-4 col-lg-3");
     // cardContainer.classList.add("style=margin:100px");
 
     // cardContainer.setAttribute("style", "width: 18rem;");
