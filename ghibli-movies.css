@@ -30,9 +30,13 @@
   justify-content: space-evenly;
   padding: 20px;
   margin-bottom: 30px;
-  /* outline: solid black 2px; */
+  outline: solid black 2px;
 }
 
+.form-control {
+  display: block;
+  width: 20vw;
+}
 /* select {
   background-color: rgb(184, 234, 254);
 } */
