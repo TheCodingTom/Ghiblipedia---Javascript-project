@@ -74,6 +74,7 @@ function displayCards(films) {
     // cardBody.appendChild(cardText);
     // cardBody.appendChild(cardLink);
   }
+  searchEventListener();
 }
 
 // 3. generate dropdown options
@@ -177,7 +178,14 @@ const sortByDropDown = (films) => {
   });
 };
 
-// modal
+// search
+
+const searchEventListener = () => {
+  const input = document.querySelector(".form-control");
+  input.addEventListener("keypress", () => {
+    console.log("yes");
+  });
+};
 
 getFilms();
 
