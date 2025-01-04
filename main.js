@@ -38,7 +38,7 @@ function displayCards(films) {
     // cardContainer.setAttribute("style", "width: 18rem;");
 
     const cardImage = document.createElement("img"); // MAKE IMAGE SMALLER
-    cardImage.setAttribute("src", films[i].image); // using the index to select all elements of the array and remember the structure of the data I'm using
+    cardImage.setAttribute("src", films[i].movie_banner); // using the index to select all elements of the array and remember the structure of the data I'm using
     cardImage.setAttribute("alt", "image of a studio ghibli movie"); // double check if I find a better description
     cardImage.classList.add("card-image");
 
@@ -53,19 +53,19 @@ function displayCards(films) {
     cardTitle.setAttribute("class", "card-title"); // alternative: cardTitle.classList.add("card-title")
     cardTitle.innerText = films[i].title;
 
-    const cardText = document.createElement("p");
-    cardText.setAttribute("class", "card-text");
-    cardText.setAttribute("class", "single-line");
-    cardText.innerText = films[i].description;
+    // const cardText = document.createElement("p");
+    // cardText.setAttribute("class", "card-text");
+    // cardText.setAttribute("class", "single-line");
+    // cardText.innerText = films[i].description;
 
     const cardLink = document.createElement("a");
     // cardLink.setAttribute("href", "");
-    cardLink.setAttribute("class", "btn btn-primary");
-    cardLink.addEventListener("click", () => {
-      openMovieDetails(films[i].id); // added event listener based on movie id to redirect user to a new page about the selected movie
-    });
+    // cardLink.setAttribute("class", "btn btn-primary");
+    // cardLink.addEventListener("click", () => {
+    //   openMovieDetails(films[i].id); // added event listener based on movie id to redirect user to a new page about the selected movie
+    // });
 
-    cardLink.innerText = "Discover more";
+    // cardLink.innerText = "Discover more";
 
     cardsContainer.appendChild(cardContainer);
     cardContainer.appendChild(cardImage);
@@ -184,7 +184,6 @@ const sortByDropDown = (films) => {
 
 const searchEventListener = (films) => {
   const input = document.querySelector("#search-bar");
-  console.log(films);
 
   input.addEventListener("input", (event) => {
     // console.log("typing");

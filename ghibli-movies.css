@@ -4,7 +4,7 @@
 }
 
 .card-image {
-  border-radius: 5%;
+  border-radius: 50%;
 }
 
 .card-image:hover {
@@ -27,16 +27,21 @@
 .filters-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 20px;
   margin-bottom: 30px;
-  outline: solid black 2px;
+
+  gap: 20px;
 }
 
 .form-control {
   display: block;
-  width: 20vw;
+  width: 15vw;
 }
 /* select {
   background-color: rgb(184, 234, 254);
 } */
+
+.card-title {
+  font-size: small;
+}
