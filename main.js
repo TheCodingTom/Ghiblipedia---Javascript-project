@@ -10,6 +10,7 @@ function getFilms() {
       const films = result;
       controller(films);
       console.log(films);
+
       // displayCards(films);
       // createDropdown(films); - called them inside controll function
     })
@@ -116,6 +117,7 @@ function controller(films) {
   dropdownEventListener(films);
   // boxEventListener(films);
   sortEventListeners(films);
+  searchEventListener(films);
   // create filter functions
 }
 
@@ -180,10 +182,18 @@ const sortByDropDown = (films) => {
 
 // search
 
-const searchEventListener = () => {
-  const input = document.querySelector(".form-control");
-  input.addEventListener("keypress", () => {
-    console.log("yes");
+const searchEventListener = (films) => {
+  const input = document.querySelector("#search-bar");
+  console.log(films);
+
+  input.addEventListener("input", (event) => {
+    // console.log("typing");
+    // console.log(event.target.value);
+    const searchText = event.target.value.toLowerCase(); // convert input to lower case
+    const filteredFilms = films.filter(
+      (film) => film.title.toLowerCase().includes(searchText) // Match search text with movie title
+    );
+    displayCards(filteredFilms);
   });
 };
 
