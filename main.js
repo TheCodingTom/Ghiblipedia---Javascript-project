@@ -48,6 +48,7 @@ function displayCards(films) {
 
     const cardTitle = document.createElement("h6");
     cardTitle.setAttribute("class", "card-title"); // alternative: cardTitle.classList.add("card-title")
+    // cardTitle.setAttribute("style", "color:grey");
     cardTitle.innerText = films[i].title;
 
     // const cardText = document.createElement("p");
