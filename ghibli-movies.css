@@ -56,3 +56,34 @@ body {
   margin-right: auto;
   width: 40%;
 }
+
+.logo:hover {
+  animation: myAnimation 0.8s;
+}
+
+@keyframes myAnimation {
+  from {
+    transform: (0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* @keyframes myAnimation {
+  from {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 300px;
+  }
+  to {
+    margin-left: 600px;
+  }
+} */
