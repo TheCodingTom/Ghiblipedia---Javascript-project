@@ -6,13 +6,9 @@ function getFilms() {
       return response.json();
     })
     .then((result) => {
-      // console.log(result);
       const films = result;
       controller(films);
       console.log(films);
-
-      // displayCards(films);
-      // createDropdown(films); - called them inside controll function
     })
     .catch((error) => {
       console.log(error);
@@ -27,16 +23,10 @@ function displayCards(films) {
   for (let i = 0; i < films.length; i++) {
     const cardContainer = document.createElement("div");
     cardContainer.setAttribute("id", films[i].id); // to create single pages
-    // cardContainer.setAttribute("class", "card col-sm-6 col-md-4 col-lg-3");
-
     cardContainer.setAttribute("class", "card col-sm-6 col-md-4 col-lg-3");
-    // cardContainer.classList.add("style=margin:100px");
-
-    // cardContainer.setAttribute("style", "width: 18rem;");
-
-    const cardImage = document.createElement("img"); // MAKE IMAGE SMALLER
+    const cardImage = document.createElement("img");
     cardImage.setAttribute("src", films[i].movie_banner); // using the index to select all elements of the array and remember the structure of the data I'm using
-    cardImage.setAttribute("alt", "image of a studio ghibli movie"); // double check if I find a better description
+    cardImage.setAttribute("alt", "image of a studio ghibli movie");
     cardImage.classList.add("card-image");
 
     cardImage.addEventListener("click", () => {
@@ -50,11 +40,6 @@ function displayCards(films) {
     cardTitle.setAttribute("class", "card-title"); // alternative: cardTitle.classList.add("card-title")
     // cardTitle.setAttribute("style", "color:grey");
     cardTitle.innerText = films[i].title;
-
-    // const cardText = document.createElement("p");
-    // cardText.setAttribute("class", "card-text");
-    // cardText.setAttribute("class", "single-line");
-    // cardText.innerText = films[i].description;
 
     const cardLink = document.createElement("a");
     // cardLink.setAttribute("href", "");
@@ -79,7 +64,7 @@ function displayCards(films) {
 // 3. generate dropdown options
 
 const createDropdown = (films) => {
-  // get array of films by calling function in the fetch
+  // get array of films by calling function in the fetch - or in the controller in my case
   const dropdown = document.getElementById("directorDropdown");
 
   const directors = films.map((film) => {
@@ -105,20 +90,13 @@ const createDropdown = (films) => {
 // 4. create controller function to handle the code in a better way
 
 function controller(films) {
-  // get the data
-
   // build cards with data
   displayCards(films);
   // generate dropdown filters options
   createDropdown(films);
   // set event listeners
-
   initialazeEvent(films);
-  // dropdownEventListener(films);
-
-  // sortEventListeners(films);
   searchEventListener(films);
-  // create filter functions
 }
 
 // 5. event listeners
@@ -132,25 +110,12 @@ const dropdownEventListener = (films) => {
 
 const sortEventListeners = (films) => {
   const filmSort = document.getElementById("sortByBox");
-
   filmSort.addEventListener("change", (e) => {
-    // console.log(e.target.value);
     applyFilters(films);
   });
 };
 
-// 6. filter by dropdown
-
-// const filterByDropdown = (films) => {
-//   const selectedDirector = document.querySelector("#directorDropdown").value; // with .value we get the value of the option that has been selected
-//   const filteredDirector = films.filter((film) => {
-//     return selectedDirector === film.director || selectedDirector === "all";
-//   });
-
-//   displayCards(filteredDirector);
-// };
-
-// Unified function to apply both filters
+// 6. unified function to apply both filters
 
 const applyFilters = (films) => {
   const selectedDirector = document.querySelector("#directorDropdown").value; // with .value we get the value of the option that has been selected
@@ -162,7 +127,7 @@ const applyFilters = (films) => {
 
   const sortedFilms = [...filteredFilms];
   if (filmSortValue === "default") {
-    displayCards(films);
+    displayCards(films); // if I remove this if statement the default option still works, why?
   } else if (filmSortValue === "A-Z") {
     sortedFilms.sort((a, b) => a.title.localeCompare(b.title));
     displayCards(sortedFilms);
@@ -185,54 +150,15 @@ const initialazeEvent = (films) => {
   sortEventListeners(films);
 };
 
-// const filterByDropdown = (films) => {
-//   const selectedDirector = document.querySelector("#directorDropdown").value; // with .value we get the value of the option that has been selected
-//   const filteredDirector = films.filter((film) => {
-//     return selectedDirector === film.director || selectedDirector === "all";
-//   });
-
-//   displayCards(filteredDirector);
-// };
-
-// const sortByDropDown = (films) => {
-//   const selectedDirector = document.querySelector("#directorDropdown").value;
-//   const sortedFilms = [...films];
-
-//   const filmSort = document.getElementById("sortByBox");
-//   let filmSortValue = filmSort.value;
-
-//   const filteredDirector = films.filter((film) => {
-//     if (filmSortValue === "default") {
-//       displayCards(films);
-//     } else if (filmSortValue === "A-Z") {
-//       sortedFilms.sort((a, b) => a.title.localeCompare(b.title));
-//       displayCards(sortedFilms);
-//     } else if (filmSortValue === "Z-A") {
-//       sortedFilms.sort((a, b) => b.title.localeCompare(a.title));
-//       displayCards(sortedFilms);
-//     } else if (filmSortValue === "Release Year") {
-//       sortedFilms.sort((a, b) => b.release_date - a.release_date);
-//       displayCards(sortedFilms);
-//     } else if (filmSortValue === "Rating") {
-//       sortedFilms.sort((a, b) => b.rt_score - a.rt_score);
-//       displayCards(sortedFilms);
-//     } else if (filmSortValue === "Running Time")
-//       sortedFilms.sort((a, b) => b.running_time - a.running_time);
-//     displayCards(sortedFilms);
-//   });
-// };
-
-// search
+// 7. search
 
 const searchEventListener = (films) => {
   const input = document.querySelector("#search-bar");
 
   input.addEventListener("input", (event) => {
-    // console.log("typing");
-    // console.log(event.target.value);
     const searchText = event.target.value.toLowerCase(); // convert input to lower case
     const filteredFilms = films.filter(
-      (film) => film.title.toLowerCase().includes(searchText) // Match search text with movie title
+      (film) => film.title.toLowerCase().includes(searchText) // match search text with movie title
     );
     displayCards(filteredFilms);
   });
