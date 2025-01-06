@@ -36,29 +36,19 @@ function displayCards(films) {
     const cardBody = document.createElement("div");
     cardBody.setAttribute("class", "card-body");
 
-    const cardTitle = document.createElement("h6");
-    cardTitle.setAttribute("class", "card-title"); // alternative: cardTitle.classList.add("card-title")
-    // cardTitle.setAttribute("style", "color:grey");
-    cardTitle.innerText = films[i].title;
-
-    const cardLink = document.createElement("a");
-    // cardLink.setAttribute("href", "");
-    // cardLink.setAttribute("class", "btn btn-primary");
-    // cardLink.addEventListener("click", () => {
-    //   openMovieDetails(films[i].id); // added event listener based on movie id to redirect user to a new page about the selected movie
-    // });
-
-    // cardLink.innerText = "Discover more";
+    const cardLink = document.createElement("button");
+    cardLink.innerText = films[i].title;
+    cardLink.classList.add("link");
+    cardLink.addEventListener("click", () => {
+      openMovieDetails(films[i].id); // added event listener based on movie id to redirect user to a new page about the selected movie
+    });
+    cardLink.innerText = films[i].title;
 
     cardsContainer.appendChild(cardContainer);
     cardContainer.appendChild(cardImage);
-
     cardContainer.appendChild(cardBody); // same level as the image - not a child of cardImage
-    cardBody.appendChild(cardTitle);
-    // cardBody.appendChild(cardText);
-    // cardBody.appendChild(cardLink);
+    cardBody.appendChild(cardLink);
   }
-  searchEventListener();
 }
 
 // 3. generate dropdown options

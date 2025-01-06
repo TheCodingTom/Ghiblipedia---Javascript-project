@@ -85,3 +85,8 @@ body {
     transform: scale(1);
   }
 }
+
+button.link {
+  background: none;
+  border: none;
+}
