@@ -112,9 +112,11 @@ function controller(films) {
   // generate dropdown filters options
   createDropdown(films);
   // set event listeners
-  dropdownEventListener(films);
-  // boxEventListener(films);
-  sortEventListeners(films);
+
+  initialazeEvent(films);
+  // dropdownEventListener(films);
+
+  // sortEventListeners(films);
   searchEventListener(films);
   // create filter functions
 }
@@ -124,59 +126,101 @@ function controller(films) {
 const dropdownEventListener = (films) => {
   const directorDropdown = document.querySelector("#directorDropdown");
   directorDropdown.addEventListener("change", () => {
-    filterByDropdown(films);
+    applyFilters(films);
   });
 };
-
-// 6. filter by dropdown
-
-const filterByDropdown = (films) => {
-  const selectedDirector = document.querySelector("#directorDropdown").value; // with .value we get the value of the option that has been selected
-  const filteredDirector = films.filter((film) => {
-    return selectedDirector === film.director || selectedDirector === "all";
-  });
-
-  displayCards(filteredDirector);
-};
-
-//? Sort by
 
 const sortEventListeners = (films) => {
   const filmSort = document.getElementById("sortByBox");
 
   filmSort.addEventListener("change", (e) => {
     // console.log(e.target.value);
-    sortByDropDown(films);
+    applyFilters(films);
   });
 };
 
-const sortByDropDown = (films) => {
-  const selectedDirector = document.querySelector("#directorDropdown").value;
-  const sortedFilms = [...films];
+// 6. filter by dropdown
 
-  const filmSort = document.getElementById("sortByBox");
-  let filmSortValue = filmSort.value;
+// const filterByDropdown = (films) => {
+//   const selectedDirector = document.querySelector("#directorDropdown").value; // with .value we get the value of the option that has been selected
+//   const filteredDirector = films.filter((film) => {
+//     return selectedDirector === film.director || selectedDirector === "all";
+//   });
 
-  const filteredDirector = films.filter((film) => {
-    if (filmSortValue === "default") {
-      displayCards(films);
-    } else if (filmSortValue === "A-Z") {
-      sortedFilms.sort((a, b) => a.title.localeCompare(b.title));
-      displayCards(sortedFilms);
-    } else if (filmSortValue === "Z-A") {
-      sortedFilms.sort((a, b) => b.title.localeCompare(a.title));
-      displayCards(sortedFilms);
-    } else if (filmSortValue === "Release Year") {
-      sortedFilms.sort((a, b) => b.release_date - a.release_date);
-      displayCards(sortedFilms);
-    } else if (filmSortValue === "Rating") {
-      sortedFilms.sort((a, b) => b.rt_score - a.rt_score);
-      displayCards(sortedFilms);
-    } else if (filmSortValue === "Running Time")
-      sortedFilms.sort((a, b) => b.running_time - a.running_time);
+//   displayCards(filteredDirector);
+// };
+
+// Unified function to apply both filters
+
+const applyFilters = (films) => {
+  const selectedDirector = document.querySelector("#directorDropdown").value; // with .value we get the value of the option that has been selected
+  const filmSortValue = document.getElementById("sortByBox").value;
+
+  const filteredFilms = films.filter((film) => {
+    return selectedDirector === film.director || selectedDirector === "all";
+  });
+
+  const sortedFilms = [...filteredFilms];
+  if (filmSortValue === "default") {
+    displayCards(films);
+  } else if (filmSortValue === "A-Z") {
+    sortedFilms.sort((a, b) => a.title.localeCompare(b.title));
     displayCards(sortedFilms);
-  });
+  } else if (filmSortValue === "Z-A") {
+    sortedFilms.sort((a, b) => b.title.localeCompare(a.title));
+    displayCards(sortedFilms);
+  } else if (filmSortValue === "Release Year") {
+    sortedFilms.sort((a, b) => b.release_date - a.release_date);
+    displayCards(sortedFilms);
+  } else if (filmSortValue === "Rating") {
+    sortedFilms.sort((a, b) => b.rt_score - a.rt_score);
+    displayCards(sortedFilms);
+  } else if (filmSortValue === "Running Time")
+    sortedFilms.sort((a, b) => b.running_time - a.running_time);
+  displayCards(sortedFilms);
 };
+
+const initialazeEvent = (films) => {
+  dropdownEventListener(films);
+  sortEventListeners(films);
+};
+
+// const filterByDropdown = (films) => {
+//   const selectedDirector = document.querySelector("#directorDropdown").value; // with .value we get the value of the option that has been selected
+//   const filteredDirector = films.filter((film) => {
+//     return selectedDirector === film.director || selectedDirector === "all";
+//   });
+
+//   displayCards(filteredDirector);
+// };
+
+// const sortByDropDown = (films) => {
+//   const selectedDirector = document.querySelector("#directorDropdown").value;
+//   const sortedFilms = [...films];
+
+//   const filmSort = document.getElementById("sortByBox");
+//   let filmSortValue = filmSort.value;
+
+//   const filteredDirector = films.filter((film) => {
+//     if (filmSortValue === "default") {
+//       displayCards(films);
+//     } else if (filmSortValue === "A-Z") {
+//       sortedFilms.sort((a, b) => a.title.localeCompare(b.title));
+//       displayCards(sortedFilms);
+//     } else if (filmSortValue === "Z-A") {
+//       sortedFilms.sort((a, b) => b.title.localeCompare(a.title));
+//       displayCards(sortedFilms);
+//     } else if (filmSortValue === "Release Year") {
+//       sortedFilms.sort((a, b) => b.release_date - a.release_date);
+//       displayCards(sortedFilms);
+//     } else if (filmSortValue === "Rating") {
+//       sortedFilms.sort((a, b) => b.rt_score - a.rt_score);
+//       displayCards(sortedFilms);
+//     } else if (filmSortValue === "Running Time")
+//       sortedFilms.sort((a, b) => b.running_time - a.running_time);
+//     displayCards(sortedFilms);
+//   });
+// };
 
 // search
 

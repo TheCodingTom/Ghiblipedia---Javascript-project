@@ -7,6 +7,10 @@ img {
   border-radius: 10%;
 }
 
+body {
+  background-color: rgb(184, 234, 254);
+}
+
 .movie-details {
   display: flex !important;
   flex-direction: row;
@@ -26,8 +30,6 @@ img {
   margin-top: 10vh;
 }
 
-/* 
 .img-fluid {
-  height: 30vh;
-  width: 50vh;
-} */
+  max-width: 60%;
+}
