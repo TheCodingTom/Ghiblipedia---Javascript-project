@@ -50,11 +50,20 @@ body {
   font-size: medium;
 }
 
+.logo-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo-link {
+  margin: 0px auto;
+}
+
 .logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto;
+  display: inline;
   width: 30%;
+  height: auto;
 }
 
 .logo:hover {
