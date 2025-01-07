@@ -11,25 +11,42 @@ body {
   background-color: rgb(184, 234, 254);
 }
 
-.movie-details {
-  display: flex !important;
+.top-container {
+  display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
   justify-content: center;
-  gap: 10vh;
 }
 
 .movie-info {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  margin-left: 50px;
   justify-content: center;
-}
-
-.overview {
-  text-align: center;
-  margin-top: 10vh;
+  width: 50%;
 }
 
 .img-fluid {
-  max-width: 60%;
+  width: 20vw;
+  height: 50vh;
+  border: solid white 2px;
+}
+
+.video-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.video-container iframe {
+  margin: auto;
+  width: 50vw;
+  height: 40vh;
+  margin-bottom: 10px;
+  border: none;
+}
+
+h5 {
+  text-align: center;
+  font-size: x-large;
 }

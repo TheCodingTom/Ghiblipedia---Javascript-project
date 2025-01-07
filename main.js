@@ -157,7 +157,7 @@ const searchEventListener = (films) => {
 getFilms();
 
 function openMovieDetails(movieId) {
-  window.location.href = `movie-page.html?id=${movieId}`; // used to get the current URL and to redirect the browser to a new page
+  window.location.href = `movie-page-copy.html?id=${movieId}`; // used to get the current URL and to redirect the browser to a new page
 }
 
 //? only thing I'm not sure about window.location.href is "shouldn't the written url be the same as the current page?"

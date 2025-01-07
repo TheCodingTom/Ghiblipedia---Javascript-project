@@ -5,6 +5,7 @@ body {
 .card {
   background-color: rgb(184, 234, 254);
   border: none !important;
+  padding: 10px;
 }
 
 .card-image {
