@@ -23,7 +23,7 @@ function changeButtonColor2() {
 function changeColorEvent() {
   const myButton = document.querySelector(".btn");
   myButton.addEventListener("mouseenter", changeButtonColor);
-  myButton.addEventListener("mouseleave", changeButtonColor2); // isn't it better to do this with CSS?
+  myButton.addEventListener("mouseleave", changeButtonColor2); //  can't we do this only with CSS?
 }
 
 addButtonEvent();

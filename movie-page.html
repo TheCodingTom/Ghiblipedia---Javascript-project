@@ -48,36 +48,34 @@
       <h4 id="original-title"></h4>
     </header>
     <main>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-sm-6">
-            <img
-              id="movie-banner"
-              class="img-fluid"
-              alt="image of a studio ghibli movie"
-            />
-          </div>
-          <div class="col-sm-6 movie-info">
-            <p><strong>Director:</strong> <span id="movie-director"></span></p>
-            <p><strong>Producer:</strong> <span id="movie-producer"></span></p>
-            <p>
-              <strong>Release Date:</strong>
-              <span id="movie-release-date"></span>
-            </p>
-            <p><strong>Rating:</strong> <span id="movie-rating"></span>/100</p>
-            <p>
-              <strong>Running time:</strong> <span id="movie-time"></span> mins
-            </p>
-          </div>
+      <div class="top-container">
+        <img
+          id="movie-banner"
+          class="img-fluid"
+          alt="image of a studio ghibli movie"
+        />
+
+        <div class="movie-info">
+          <p><strong>Director:</strong> <span id="movie-director"></span></p>
+          <p><strong>Producer:</strong> <span id="movie-producer"></span></p>
+          <p>
+            <strong>Release Date:</strong>
+            <span id="movie-release-date"></span>
+          </p>
+          <p><strong>Rating:</strong> <span id="movie-rating"></span>/100</p>
+          <p>
+            <strong>Running time:</strong> <span id="movie-time"></span> mins
+          </p>
+          <p>
+            <strong>Overview:</strong>
+            <span id="movie-description"></span>
+          </p>
         </div>
-        <div class="row">
-          <div class="col-sm12 overview">
-            <p>
-              <strong>Overview:</strong>
-              <span id="movie-description"></span>
-            </p>
-          </div>
-        </div>
+      </div>
+
+      <div>
+        <h5>Official trailer</h5>
+        <div class="video-container" id="video-container"></div>
       </div>
     </main>
     <script
