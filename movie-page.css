@@ -5,7 +5,7 @@ h1 {
   font-weight: 600;
 }
 
-h4 {
+h3 {
   text-align: center;
   color: darkslategrey;
   padding: 5px;
@@ -35,6 +35,12 @@ body {
   margin-left: 50px;
   justify-content: center;
   width: 50%;
+}
+
+.short-info {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .img-fluid {

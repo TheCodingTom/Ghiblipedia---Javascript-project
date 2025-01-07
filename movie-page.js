@@ -51,12 +51,14 @@ function displayMovieDetails(movie) {
   document.getElementById("movie-title").textContent = movie.title;
   document.getElementById("movie-description").textContent = movie.description;
   document.getElementById("movie-director").textContent = movie.director;
-  document.getElementById("movie-producer").textContent = movie.producer;
+  // document.getElementById("movie-producer").textContent = movie.producer;
   document.getElementById("movie-release-date").textContent =
     movie.release_date;
-  document.getElementById("movie-rating").textContent = movie.rt_score;
+  // document.getElementById("movie-rating").textContent = movie.rt_score;
   document.getElementById("movie-banner").src = movie.image;
   document.getElementById("original-title").textContent = movie.original_title;
+  document.getElementById("romanised-title").textContent =
+    movie.original_title_romanised;
   document.getElementById("movie-time").textContent = movie.running_time;
 }
 

@@ -45,7 +45,8 @@
     </nav>
     <header>
       <h1 id="movie-title"></h1>
-      <h4 id="original-title"></h4>
+      <h3 id="original-title"></h3>
+      <h3 id="romanised-title"></h3>
     </header>
     <main>
       <div class="top-container">
@@ -56,20 +57,17 @@
         />
 
         <div class="movie-info">
-          <p><strong>Director:</strong> <span id="movie-director"></span></p>
-          <p><strong>Producer:</strong> <span id="movie-producer"></span></p>
+          <h4>Overview:</h4>
           <p>
-            <strong>Release Date:</strong>
-            <span id="movie-release-date"></span>
-          </p>
-          <p><strong>Rating:</strong> <span id="movie-rating"></span>/100</p>
-          <p>
-            <strong>Running time:</strong> <span id="movie-time"></span> mins
-          </p>
-          <p>
-            <strong>Overview:</strong>
             <span id="movie-description"></span>
           </p>
+          <div class="short-info">
+            <p>
+              <strong><span id="movie-director"></span></strong>,
+              <span id="movie-release-date"></span>
+            </p>
+            <p><span id="movie-time"></span> mins</p>
+          </div>
         </div>
       </div>
 
