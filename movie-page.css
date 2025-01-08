@@ -1,53 +1,54 @@
+body {
+  background-color: rgb(184, 234, 254);
+}
+
 h1 {
-  text-align: center;
-  margin-top: 20px;
   font-family: "Poppins", serif;
   font-weight: 600;
+  margin-top: 20px;
+  text-align: center;
 }
 
 h3 {
-  text-align: center;
   color: darkslategrey;
-  padding: 5px;
   font-family: "Poppins", serif;
   font-weight: 600;
-}
-
-img {
-  border-radius: 10%;
-}
-
-body {
-  background-color: rgb(184, 234, 254);
+  padding: 5px;
+  text-align: center;
 }
 
 .top-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 20px;
   justify-content: center;
+  padding: 20px;
+}
+
+.img-fluid {
+  border: solid white 2px;
+  border-radius: 10%;
+  height: 40%;
+  width: 20%;
 }
 
 .movie-info {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
   justify-content: center;
+  margin-left: 50px;
   width: 40%;
 }
 
 .short-info {
   display: flex;
   flex-direction: row;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
-.img-fluid {
-  width: 20%;
-  height: 40%;
-  border: solid white 2px;
+h5 {
+  font-size: xx-large;
+  text-align: center;
 }
 
 .video-container {
@@ -56,14 +57,9 @@ body {
 }
 
 .video-container iframe {
-  margin: auto;
-  width: 50vw;
+  border: solid white 2px;
   height: 40vh;
   margin-bottom: 10px;
-  border: none;
-}
-
-h5 {
-  text-align: center;
-  font-size: xx-large;
+  margin: auto;
+  width: 50vw;
 }

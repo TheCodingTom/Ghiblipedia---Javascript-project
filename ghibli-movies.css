@@ -2,6 +2,48 @@ body {
   background-color: rgb(184, 234, 254);
 }
 
+.logo-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo-link {
+  margin: 0px auto;
+}
+
+.logo {
+  display: inline;
+  height: auto;
+  margin: 20px auto;
+  width: 30%;
+}
+
+.logo:hover {
+  animation: myAnimation 0.8s;
+}
+
+.filters-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.form-control-sm {
+  width: 15vw;
+}
+
+.form-control {
+  display: block;
+  width: 15vw;
+}
+
+.row {
+  row-gap: 10px;
+}
+
 .card {
   background-color: rgb(184, 234, 254);
   border: none !important;
@@ -16,53 +58,13 @@ body {
   transform: scale(1.05);
 }
 
-.row {
-  row-gap: 10px;
-}
-
-.filters-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 20px;
-  margin-bottom: 30px;
-  gap: 20px;
-}
-
-.form-control-sm {
-  width: 15vw;
-}
-
-.form-control {
-  display: block;
-  width: 15vw;
-}
-/* select {
-  background-color: rgb(184, 234, 254);
-} */
-
 .card-title {
   font-size: medium;
 }
 
-.logo-container {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.logo-link {
-  margin: 0px auto;
-}
-
-.logo {
-  margin: 20px auto;
-  display: inline;
-  width: 30%;
-  height: auto;
-}
-
-.logo:hover {
-  animation: myAnimation 0.8s;
+button.link {
+  background: none;
+  border: none;
 }
 
 @keyframes myAnimation {
@@ -92,8 +94,3 @@ body {
     transform: scale(1);
   }
 } */
-
-button.link {
-  background: none;
-  border: none;
-}

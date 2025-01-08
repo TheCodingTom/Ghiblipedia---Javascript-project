@@ -1,14 +1,14 @@
 #carouselExampleIndicators {
-  width: 100%;
   margin: auto;
+  width: 100%;
 }
 
 .carousel-inner > .carousel-item > img {
   /* adds same height for carousel pics */
   /* height: 100vh; */
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 }
 
 .carousel-caption {
@@ -29,20 +29,25 @@
   display: block !important;
 }
 
+#more {
+  display: none;
+}
+
 .minilink {
-  text-decoration: none;
   color: white;
+  text-decoration: none;
 }
 
 p {
   padding: 10px;
 }
+
 .bottom-right {
-  position: absolute;
   bottom: 8px;
-  right: 16px;
   color: white;
   font-size: x-small;
-  width: 11vw;
+  position: absolute;
+  right: 16px;
   text-align: center;
+  width: 11vw;
 }
