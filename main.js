@@ -120,11 +120,17 @@ const applyFilters = (films) => {
   } else if (filmSortValue === "Z-A") {
     sortedFilms.sort((a, b) => b.title.localeCompare(a.title));
     displayCards(sortedFilms);
-  } else if (filmSortValue === "Release Year") {
+  } else if (filmSortValue === "Release Year New") {
     sortedFilms.sort((a, b) => b.release_date - a.release_date);
     displayCards(sortedFilms);
-  } else if (filmSortValue === "Rating") {
+  } else if (filmSortValue === "Release Year Old") {
+    sortedFilms.sort((a, b) => a.release_date - b.release_date);
+    displayCards(sortedFilms);
+  } else if (filmSortValue === "Highest Rating") {
     sortedFilms.sort((a, b) => b.rt_score - a.rt_score);
+    displayCards(sortedFilms);
+  } else if (filmSortValue === "Lowest Rating") {
+    sortedFilms.sort((a, b) => a.rt_score - b.rt_score);
     displayCards(sortedFilms);
   } else if (filmSortValue === "Running Time")
     sortedFilms.sort((a, b) => b.running_time - a.running_time);
