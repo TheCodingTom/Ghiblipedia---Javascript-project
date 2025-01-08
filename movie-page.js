@@ -60,6 +60,7 @@ function displayMovieDetails(movie) {
     movie.original_title + " - " + movie.original_title_romanised;
 
   document.getElementById("movie-time").textContent = movie.running_time;
+  document.getElementById("movie-rating").textContent = movie.rt_score;
 }
 
 function displayMovieVideos(movieId) {

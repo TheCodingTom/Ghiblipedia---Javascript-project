@@ -20,23 +20,17 @@ body {
   row-gap: 10px;
 }
 
-/* .single-line {
-  overflow: hidden;
-  line-height: 2rem;
-  max-height: 8rem;
-  display: block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-} */
-
 .filters-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 20px;
   margin-bottom: 30px;
-
   gap: 20px;
+}
+
+.form-control-sm {
+  width: 15vw;
 }
 
 .form-control {
