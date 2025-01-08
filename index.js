@@ -1,3 +1,26 @@
+function getFilms() {
+  fetch("https://ghibliapi.vercel.app/films")
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      const films = result;
+      getIds(films);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function getIds(films) {
+  for (let i = 0; i < films.length; i++) {
+    const filmId = films[i].id;
+    console.log(filmId);
+  }
+}
+
+getFilms();
+
 function addButtonEvent() {
   // 1. Locate html element
   const myButton = document.querySelector(".btn");
