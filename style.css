@@ -13,13 +13,3 @@
 #more {
   display: none;
 }
-
-.bottom-right {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-  color: white;
-  font-size: small;
-  width: 11vw;
-  text-align: center;
-}

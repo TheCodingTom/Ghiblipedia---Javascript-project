@@ -28,14 +28,11 @@ function displayCards(films) {
     cardImage.setAttribute("src", films[i].movie_banner); // using the index to select all elements of the array and remember the structure of the data I'm using
     cardImage.setAttribute("alt", "image of a studio ghibli movie");
     cardImage.classList.add("card-image");
-
     cardImage.addEventListener("click", () => {
       openMovieDetails(films[i].id); // added event listener based on movie id to redirect user to a new page about the selected movie
     });
-
     const cardBody = document.createElement("div");
     cardBody.setAttribute("class", "card-body");
-
     const cardLink = document.createElement("button");
     cardLink.innerText = films[i].title;
     cardLink.classList.add("link");
@@ -43,9 +40,7 @@ function displayCards(films) {
       openMovieDetails(films[i].id); // added event listener based on movie id to redirect user to a new page about the selected movie
     });
     cardLink.innerText = films[i].title;
-
     cardsContainer.appendChild(cardContainer);
-
     cardContainer.appendChild(cardImage);
     cardContainer.appendChild(cardBody); // same level as the image - not a child of cardImage
     cardBody.appendChild(cardLink);
