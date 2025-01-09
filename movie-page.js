@@ -2,7 +2,7 @@ const API_URL = "https://ghibliapi.vercel.app/films";
 
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search); // creates a new URL object with the query string of the current URL and it's used to access the parameters of the query string
-  const movieId = urlParams.get("id"); // the get method is used to access the value of "id" that will output the number in the URL
+  const movieId = urlParams.get("id"); // the get method is used to access the value of "id" that will add the number in the URL
   getMovieDetails(movieId);
 });
 
@@ -38,7 +38,7 @@ function displayMovieDetails(movie) {
 function displayMovieVideos(movieId) {
   const videoContainer = document.getElementById("video-container");
   const movieVideos = {
-    "2baf70d1-42bb-4437-b551-e5fed5a87abe": ["8ykEy-yPBFc"], // object - first unique key ID (API movie), after that array of strings (with only one string with the youtube ID)
+    "2baf70d1-42bb-4437-b551-e5fed5a87abe": ["8ykEy-yPBFc"], // object - first unique key ID (API movie), after that array of strings (in this case only one string with the youtube ID but I could add more to show more videos)
     "12cfb892-aac0-4c5b-94af-521852e46d6a": ["4vPeTSRd580"],
     "58611129-2dbc-4a81-a72f-77ddfc1b1b49": ["92a7Hj0ijLs"],
     "ea660b10-85c4-4ae3-8a5f-41cea3648e3e": ["4bG17OYs-GA"],

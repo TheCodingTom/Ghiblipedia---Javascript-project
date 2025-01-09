@@ -96,7 +96,7 @@ const dropdownEventListener = (films) => {
 
 const sortEventListeners = (films) => {
   const filmSort = document.getElementById("sortByBox");
-  filmSort.addEventListener("change", (e) => {
+  filmSort.addEventListener("change", () => {
     applyFilters(films);
   });
 };
@@ -134,7 +134,7 @@ const applyFilters = (films) => {
     displayCards(sortedFilms);
   } else if (filmSortValue === "Running Time")
     sortedFilms.sort((a, b) => b.running_time - a.running_time);
-  displayCards(sortedFilms);
+  displayCards(sortedFilms); // if I remove all the displayCards function calls besides this one everything works anyways
 };
 
 const initialazeEvent = (films) => {
@@ -150,7 +150,7 @@ const searchEventListener = (films) => {
   input.addEventListener("input", (event) => {
     const searchText = event.target.value.toLowerCase(); // convert input to lower case
     const filteredFilms = films.filter(
-      (film) => film.title.toLowerCase().includes(searchText) // match search text with movie title
+      (film) => film.title.toLowerCase().includes(searchText) // .filter creates a new array that matches search text with movie title
     );
     displayCards(filteredFilms);
   });

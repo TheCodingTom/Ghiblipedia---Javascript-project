@@ -5,18 +5,10 @@ function getFilms() {
     })
     .then((result) => {
       const films = result;
-      getIds(films);
     })
     .catch((error) => {
       console.log(error);
     });
-}
-
-function getIds(films) {
-  for (let i = 0; i < films.length; i++) {
-    const filmId = films[i].id;
-    console.log(filmId);
-  }
 }
 
 getFilms();
@@ -49,7 +41,7 @@ function changeColorEvent() {
   myButton.addEventListener("mouseleave", changeButtonColor2); //  can't we do this only with CSS?
 }
 
-addButtonEvent();
+addButtonEvent(); // call this in the fetch function or create a controller
 changeColorEvent();
 
 function showMoreText() {
