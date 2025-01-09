@@ -1,27 +1,3 @@
-function getFilms() {
-  fetch("https://ghibliapi.vercel.app/films")
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      const films = result;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
-
-getFilms();
-
-function addButtonEvent() {
-  // 1. Locate html element
-  const myButton = document.querySelector(".btn");
-
-  // 2. Add the event listener
-  myButton.addEventListener("click", function () {
-    // alert("you clicked here");
-  });
-}
 function changeButtonColor() {
   const myButton = document.querySelector(".btn");
   myButton.setAttribute("style", "color:red");
@@ -40,9 +16,6 @@ function changeColorEvent() {
   myButton.addEventListener("mouseenter", changeButtonColor);
   myButton.addEventListener("mouseleave", changeButtonColor2); //  can't we do this only with CSS?
 }
-
-addButtonEvent(); // call this in the fetch function or create a controller
-changeColorEvent();
 
 function showMoreText() {
   const dots = document.getElementById("dots");
@@ -65,4 +38,5 @@ function showMoreEvent() {
   myButton.addEventListener("click", showMoreText);
 }
 
+changeColorEvent();
 showMoreEvent();
